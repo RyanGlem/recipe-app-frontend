@@ -10,28 +10,24 @@ class GifData extends Component {
         this.state = {
 
             gifData: [],
-            src: {},
+            url: "",
         }
 
         this.state.src = [...this.state.gifData]
-        {console.log(this.state.gifData.url)}
+        console.log(this.state.gifData)
     }
 
-    async componentDidMount () {
+    componentDidMount () {
 
-        try {
-          let gifData = await axios.get (
-              'http://api.giphy.com/v1/gifs/search?q=SEARCH+TERM+GOES+HERE&api_key=AyuSIWGMSt6cQ5wox8Kp661mPyQzLONo'
-          )
-          this.setState ({gifData: gifData.data})
-          console.log (this.state.gifData)
-      } catch (error) {
-          console.error(error)
-        }
+            fetch ('http://api.giphy.com/v1/gifs/search?q=SEARCH+TERM+GOES+HERE&api_key=AyuSIWGMSt6cQ5wox8Kp661mPyQzLONo')
+            .then((response) => response.json())
+            .then((response) => {this.setState({gifData: response.data.map((elem) => {return (elem.images.original.url)})})})
+            .catch ((error) => console.error(error))
+         
       }
 
-      render () {
-          return (<div>gifs</div>)
+      render () { 
+         {return (<div> <img src={(this.state.gifData)} alt =""></img> </div>)}
       }
       
 }
