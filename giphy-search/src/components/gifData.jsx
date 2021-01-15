@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import GifDisplay from './gifDisplay'
 import axios from 'axios'
 
 
@@ -9,11 +10,9 @@ class GifData extends Component {
         super (props)
         this.state = {
 
-            gifData: [],
-            url: "",
+            urls: [],
         }
 
-        this.state.src = [...this.state.gifData]
         console.log(this.state.gifData)
     }
 
@@ -21,14 +20,17 @@ class GifData extends Component {
 
             fetch ('http://api.giphy.com/v1/gifs/search?q=SEARCH+TERM+GOES+HERE&api_key=AyuSIWGMSt6cQ5wox8Kp661mPyQzLONo')
             .then((response) => response.json())
-            .then((response) => {this.setState({gifData: response.data.map((elem) => {return (elem.images.original.url)})})})
+            .then((response) => {this.setState({urls: response.data.map((elem) => {return (elem.images.original.url)})})})
             .catch ((error) => console.error(error))
          
       }
 
       render () { 
-         {return (<div> <img src={(this.state.gifData)} alt =""></img> </div>)}
+         {return (<div> <h4>All Trending Gifs</h4>{this.state.urls.map((elem, index) => {return (<div> <img src={elem} alt=""></img></div>)})}
+         </div> )}
       }
+
+      // {this.state.gifData.map((elem) => {return (<GifDisplay  images = {elem.images}/>)})}
       
 }
 
