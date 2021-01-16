@@ -5,9 +5,10 @@ const display = (props) => {
 
     return (
 
-    <div className="image">
-        <img src={props.images} alt=""></img>
-    </div>)
+        <div> 
+            <img src = {props.url} alt =""></img>
+        </div>
+        )
 }
 
 export default display
