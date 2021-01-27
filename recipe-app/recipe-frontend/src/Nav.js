@@ -15,6 +15,7 @@ import { ProfileView } from "./views/ProfileView";
 import { RecipesView } from "./views/RecipesView";
 import { HomeView } from "./views/HomeView";
 import { Link } from "react-router-dom";
+import Login from './components/LoginPage'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Navigation() {
@@ -45,26 +46,7 @@ function Navigation() {
           <Nav className="justify-content-end">
             <Nav.Item>
               <Button onClick={handleShow}> Login </Button>
-              <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton></Modal.Header>
-                <Modal.Body>
-                  <Form>
-                    <Form.Group controlId="formBasicText">
-                      <Form.Label>Username</Form.Label>
-                      <Form.Control type="text" placeholder="Username" />
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                      <Form.Label>Password</Form.Label>
-                      <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-
-                    <Button variant="primary" type="submit">
-                     Submit
-                     </Button>
-                  </Form>
-                </Modal.Body>
-              </Modal>
+              <Login handleClose={handleClose} show={show}/>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
