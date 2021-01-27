@@ -12,7 +12,6 @@ export const AddRecipeView = (props) => {
 
         <Form.Group controlId="formBasicImage">
           <Form.File id="exampleInput" type="image" label="Insert image"/>
-          
         </Form.Group>
 
         <Form.Group controlId="formBasicText">
