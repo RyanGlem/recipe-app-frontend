@@ -32,7 +32,7 @@ function Login({ show, handleClose }) {
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" required/>
-                <Form.Control.Feedback type="invalid" >Password Required</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">Password Required</Form.Control.Feedback>
               </Form.Group>
 
               <Button variant="primary" type="submit">

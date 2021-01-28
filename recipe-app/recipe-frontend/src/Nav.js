@@ -16,13 +16,18 @@ import { RecipesView } from "./views/RecipesView";
 import { HomeView } from "./views/HomeView";
 import { Link } from "react-router-dom";
 import Login from './components/LoginPage'
+import SignUp from './components/SignUpPage'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Navigation() {
   const [show, setShow] = useState(false);
+  const [showSignUp, setShowSignUp] = useState (false)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleCloseSignUp = () => setShowSignUp(false);
+  const handleShowSignUp = () => setShowSignUp(true);
 
   return (
     <div>
@@ -46,7 +51,8 @@ function Navigation() {
           <Nav className="justify-content-end">
             <Nav.Item>
               <Button onClick={handleShow}> Login </Button> {' '}
-              <Button> Sign Up </Button>
+              <Button onClick={handleShowSignUp}> Sign Up </Button>
+              <SignUp handeClose={handleCloseSignUp} show={showSignUp}/>
               <Login handleClose={handleClose} show={show}/>
             </Nav.Item>
           </Nav>
