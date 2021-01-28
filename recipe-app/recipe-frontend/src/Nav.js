@@ -45,7 +45,8 @@ function Navigation() {
           </Nav>
           <Nav className="justify-content-end">
             <Nav.Item>
-              <Button onClick={handleShow}> Login </Button>
+              <Button onClick={handleShow}> Login </Button> {' '}
+              <Button> Sign Up </Button>
               <Login handleClose={handleClose} show={show}/>
             </Nav.Item>
           </Nav>
