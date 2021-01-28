@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import UsersView from '../views/UsersView'
 import HomeView from '../views/HomeView'
 import { connect } from 'react-redux'
-import {getUsers} from '../redux/reducers'
+import {getUsers, getRecipes} from '../redux/reducers'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import "./ComponentCSS/Home.css";
@@ -11,11 +11,13 @@ class HomeDisplay extends Component {
 
     componentDidMount() {
         this.props.fetchUsers()
+        this.props.fetchRecipes()
     }
 
   render() {
     return (
       <div>
+        {this.props.recipes.results.map (elem => (<div> {elem.title} </div>)) }
 
       </div>
     );
@@ -25,14 +27,16 @@ class HomeDisplay extends Component {
 // Map state to props
 const mapState = (state) => {
     return {
-        users: state.users
+        users: state.users,
+        recipes: state.recipes
     }
 }
 
 // Map dispatch to props
 const mapDispatch = (dispatch) => {
     return {
-        fetchUsers: () => dispatch(getUsers())
+        fetchUsers: () => dispatch(getUsers()),
+        fetchRecipes: () => dispatch(getRecipes())
         
     }
 }
