@@ -5,6 +5,7 @@ const Recipe = db.sequelize.define('recipe', {
 	name: {
 		type: Sequelize.STRING,
 		allowNull: false,
+		unique: true
 	},
 
 	description: {
@@ -12,10 +13,9 @@ const Recipe = db.sequelize.define('recipe', {
 		allowNull: false,
 	},
 
-	username: {
-		type: Sequelize.STRING,
-		allowNull: false,
-		isEmail: true,
+	steps: {
+		type: Sequelize.TEXT,
+		allowNull: false
 	},
 
 	imageUrl: {
