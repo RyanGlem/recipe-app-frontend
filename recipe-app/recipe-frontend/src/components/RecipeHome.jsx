@@ -17,7 +17,7 @@ class HomeDisplay extends Component {
   render() {
     return (
       <div>
-        {this.props.recipes.results.map (elem => (<div> {elem.title} </div>)) }
+        {/*this.props.recipes.results.map (elem => (<div> {elem.title} </div>)) */}
 
       </div>
     );

@@ -44,7 +44,7 @@ export const getRecipes = () => {
         url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
         params: {query: 'steak', number: '10', offset: '0', type: 'main course'},
         headers: {
-          'x-rapidapi-key': '98a4a0dc85mshaf8653cfd10650cp16904cjsndcb4a54c2a6f',
+          'x-rapidapi-key': process.env.API_KEY,
           'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
         }
       };
