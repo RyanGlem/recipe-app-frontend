@@ -36,7 +36,7 @@ export const getUsers = () => {
     return async (dispatch) => {
         try {
             
-            const response = await axios.get('http://localhost:8080/users/')
+            const response = await axios.get('https://capstone-recipe-db.herokuapp.com/users')
             dispatch (gotUsers(response.data))
             console.log (response.data.users)
         } catch (error) {
@@ -69,7 +69,7 @@ export const getRecipes = () => {
 export const createUser = (body) => {
     return async (dispatch) => {
     try {
-        const response = await axios.post('http://localhost:8080/auth/login', body)
+        const response = await axios.post('https://capstone-recipe-db.herokuapp.com/auth/login', body)
         dispatch (userCreation(response.data))
     } catch (error) {
         console.error(error)

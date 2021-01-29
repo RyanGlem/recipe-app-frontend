@@ -5,16 +5,25 @@ import {connect} from 'react-redux'
 
 class SignUp  extends Component {
 
+  constructor (props) {
+    super(props)
+    this.state = {
+      show: false
+    }
+  }
+
     componentDidMount () {
         this.props.createUser()
     }
 
-    handleShow
+    handleShow = () => {
+
+    }
 
     render () {
        
     return (  
-        <Modal show={true} onHide={true}>
+        <Modal show={false} onHide={true}>
           <Modal.Header closeButton>
             <Modal.Title>Sign Up</Modal.Title>
           </Modal.Header>
