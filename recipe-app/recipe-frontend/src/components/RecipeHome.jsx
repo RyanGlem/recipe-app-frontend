@@ -10,8 +10,8 @@ import "./ComponentCSS/Home.css";
 class HomeDisplay extends Component {
 
     componentDidMount() {
-        this.props.fetchUsers()
-        this.props.fetchRecipes()
+        //this.props.fetchUsers()
+        //this.props.fetchRecipes()
     }
 
   render() {
