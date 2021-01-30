@@ -12,7 +12,7 @@ import { Switch, Route } from "react-router-dom";
 import { AddRecipeView } from "./views/AddRecipeView";
 import { FavoritesView } from "./views/FavoritesView";
 import { ProfileView } from "./views/ProfileView";
-import { RecipesView } from "./views/RecipesView";
+import { RecipesView } from './views/RecipesView';
 import { HomeView } from "./views/HomeView";
 import { Link, Redirect } from "react-router-dom";
 import Login from './components/LoginPage'

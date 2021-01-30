@@ -1,5 +1,6 @@
 import axios from 'axios'
-import dotenv from 'dotenv'
+
+
 
 
 // Action Types
@@ -66,7 +67,7 @@ export const getUsers = () => {
     return async (dispatch) => {
         try {
             
-            const response = await axios.get('http://localhost:8080/users/')
+            const response = await axios.get('https://capstone-recipe-db.herokuapp.com/users')
             dispatch (gotUsers(response.data))
             console.log (response.data.users)
         } catch (error) {
@@ -77,19 +78,11 @@ export const getUsers = () => {
 }
 
 export const getRecipes = () => {
-    var options = {
-        method: 'GET',
-        url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
-        params: {query: 'steak', number: '10', offset: '0', type: 'main course'},
-        headers: {
-          'x-rapidapi-key': process.env.API_KEY,
-          'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-        }
-      };
+
     return async (dispatch) => {
         try {
-            await axios.request(options).then(function (response) {
-                dispatch (gotRecipes(response.data))})
+            const response = await axios.get('https://api.spoonacular.com/recipes/complexSearch?apiKey=b0f4c33cd03e43d7b3e88a79cbc8e06c')
+                dispatch (gotRecipes(response.data))
         } catch (error) {
             console.error(error)
         }
@@ -155,7 +148,7 @@ export const logoutUser = () => async dispatch => {
 const rootReducer = (state = init, action) => {
     switch (action.type) {
         case GOT_USERS:
-            return {...state, users: action.data}
+            return action.data
         case GOT_RECIPES:
             return {...state, recipes: action.data}
         case CREATE_RECIPE:
