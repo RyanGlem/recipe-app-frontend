@@ -32,14 +32,6 @@ export const HomeView = props => {
           </Carousel.Item>
           </Carousel>
           </Container>
-        
-        <div>
-          <h3> Popular Recipes</h3>
-        </div>
-        <div>
-          <h3> New Recipes </h3>
-          
-        </div>
       </div>
     )
 

@@ -8,7 +8,8 @@ class SignUp  extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      show: false
+      show: false,
+      handleClose: true
     }
   }
 
@@ -23,7 +24,7 @@ class SignUp  extends Component {
     render () {
        
     return (  
-        <Modal show={false} onHide={true}>
+        <Modal show={false} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Sign Up</Modal.Title>
           </Modal.Header>
